@@ -1,0 +1,13 @@
+
+<div class="mt-3">
+<h3><%= @restaurant.name %></h3> <span class="ml-5" style="display=inline"> |  <%= @restaurant.category %></span>
+</div>
+<p class="ml-5"><%= @restaurant.address %></p>
+
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+<br><br>
+<ul class="list-group">
+  <% @restaurant.reviews.each do |review| %>
+    <li class="list-group-item"><div class="d-flex justify-content-between"><div><%= review.content %></div> <%= '⭐' * review.rating  %></div> </li>
+  <% end %>
+</ul>
